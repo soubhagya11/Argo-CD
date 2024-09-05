@@ -1,0 +1,8 @@
+#----------------------------------------------------------------------#
+TO INSTALL ARGOCD WE HAVE TO CREATE FIRST NAMESPACE
+1.kubectl create namespace argocd (for creating a name-space)
+2.kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml (for downloading argo-cd)
+3.kubectl get all -n argocd (to check argocd installed or not with his all dependencies)
+4.kubectl edit svc argocd-server -n argocd  #enable Node Port (for changing argocd default svc to nodeport)
+5.kubectl get secret argocd-initial-admin-secret -n argocd -o yaml (to check the admin password in encode format)
+6.echo "secret value" | base64 --decode (for decode argocd password)
