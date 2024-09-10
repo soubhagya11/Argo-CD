@@ -3,6 +3,21 @@ TO INSTALL ARGOCD WE HAVE TO CREATE FIRST NAMESPACE
 1.kubectl create namespace argocd (for creating a name-space)
 2.kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml (for downloading argo-cd)
 3.kubectl get all -n argocd (to check argocd installed or not with his all dependencies)
-4.kubectl edit svc argocd-server -n argocd or kubectl get svc -n argocd  #enable Node Port (for changing argocd default svc to nodeport)
+4.kubectl edit svc argocd-server -n argocd  #enable Node Port (for changing argocd default svc to nodeport)
 5.kubectl get secret argocd-initial-admin-secret -n argocd -o yaml (to check the admin password in encode format)
 6.echo "secret value" | base64 --decode (for decode argocd password)
+
+#-----------------------------------------------------------------------#
+TO INSTALL HELM 
+1. https://github.com/helm/helm/releases
+2. wget https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
+3. tar -zxvf helm-v3.14.0-linux-amd64.tar.gz
+4. mv linux-amd64/helm /usr/local/bin/helm
+5. chmod 777 /usr/local/bin/helm  # give permissions 
+6. helm version 
+
+  helm create test (create your workspace or project)
+  helm install source1 test (to start your project)
+  helm upgrade source1 test (to upgrade your project)
+  helm list -a (to see all your project)
+  helm delete source1 test (to delete your project)
